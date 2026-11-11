@@ -1,0 +1,98 @@
+/* DG Hybrid 2027 PREVIEW ONLY — 85% editorial / 15% cinematic.
+   Additive cascade. Original styles, original imagery, and original documents stay intact.
+   No external motion dependencies or JS scroll listeners. */
+:root{
+  --bg:#090d13;--bg-2:#0d1521;--panel:#111a27;--panel-2:#172336;--panel-3:#203047;
+  --text:#f5f7fa;--muted:#b1bfd0;--line:rgba(183,205,230,.20);--line-strong:rgba(213,192,147,.43);
+  --cyan:#84dfea;--cyan-soft:#c3f4f7;--blue:#578ae3;--gold:#e6c484;--gold-soft:#f3dbaf;
+  --font:"Instrument Sans","Manrope",Aptos,Arial,sans-serif;
+  --display:"Instrument Sans","Space Grotesk",Aptos,Arial,sans-serif;
+  --max:1200px
+}
+body{background:radial-gradient(ellipse 60% 24% at 100% 2%,rgba(84,94,170,.105),transparent 80%),radial-gradient(ellipse 38% 18% at 5% 37%,rgba(171,125,67,.055),transparent 80%),var(--bg)}
+h1,h2,h3{font-feature-settings:"ss01" 1;letter-spacing:-.042em}
+h2{line-height:1.11}
+.hero h1{max-width:13ch;line-height:1.065;font-size:clamp(47px,5.6vw,81px)}
+.hero h1 em,.subhero h1 em{
+  font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-style:italic;
+  letter-spacing:-.025em;background:linear-gradient(100deg,#f6e5c3 8%,#e6c484 58%,#c9c0e4 99%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero .status-pill{border-color:rgba(223,192,132,.36);background:linear-gradient(120deg,rgba(229,192,132,.075),rgba(134,220,233,.055));color:#e2e8ee}
+.hero-lede{max-width:56ch;color:#d5dce7}
+.section-heading .kicker,.kicker,.eyebrow{color:#e2c286}
+.site-header{background:rgba(9,13,19,.89)}
+.nav-action{border-color:rgba(235,202,144,.45);background:rgba(235,202,144,.075)}
+.button.primary{background:linear-gradient(135deg,#efd8a6,#e3bd77);border:1px solid #f3dfb8;color:#17202b;box-shadow:0 15px 36px rgba(184,131,60,.16)}
+.button.primary:hover{filter:brightness(1.04)}
+.button.secondary{border-color:rgba(183,205,230,.35);background:rgba(238,245,255,.035)}
+.proof-card{background:linear-gradient(155deg,rgba(23,35,51,.96),rgba(10,17,26,.98));border-color:rgba(209,194,163,.23)}
+.proof-card::before{background:linear-gradient(90deg,#e6c484,rgba(134,223,233,.82),transparent)}
+.proof-card__link{color:#eed29c}
+.globe-shell{border-color:rgba(231,196,127,.25);box-shadow:0 30px 88px rgba(0,0,0,.48),0 0 62px rgba(89,103,182,.08)}
+/* Balanced multicolor micro-pill system; do not use saturated paint buckets. */
+.signal-strip span,.chip-cloud span,.credential-tags span{
+  border:1px solid rgba(159,186,222,.22);border-radius:999px;
+  background:linear-gradient(115deg,rgba(110,159,214,.11),rgba(101,77,167,.065));
+  color:#e0e9f4;box-shadow:inset 0 1px rgba(255,255,255,.035)
+}
+.signal-strip span:nth-child(3n+2),.chip-cloud span:nth-child(3n+2){
+  border-color:rgba(236,195,120,.28);
+  background:linear-gradient(110deg,rgba(230,196,132,.125),rgba(177,116,81,.035));color:#f0dec0
+}
+.signal-strip span:nth-child(3n),.chip-cloud span:nth-child(3n){
+  border-color:rgba(132,223,234,.27);
+  background:linear-gradient(115deg,rgba(118,221,231,.11),rgba(117,159,214,.035));color:#c9f0f2
+}
+.role-selector button[aria-selected="true"],.lab-tabs button[aria-selected="true"]{
+  border-color:rgba(230,196,132,.56);background:linear-gradient(125deg,rgba(230,196,132,.14),rgba(132,223,234,.075));color:#fff
+}
+.role-output,.skill-card,.project-card,.mastery-badge,.stat-card,.resume-side-card{
+  border-color:rgba(180,202,229,.20);box-shadow:0 20px 54px rgba(0,0,0,.14)
+}
+.role-output{border-top:2px solid rgba(230,196,132,.56)}
+.role-evidence-link{display:inline-flex;align-items:center;gap:6px;padding:10px 0;font-size:13px;font-weight:750;color:#f1d69f;text-decoration:underline;text-underline-offset:4px}
+.role-evidence-link:hover{color:#fff}
+.role-evidence-link:focus-visible{outline:3px solid #c8edfa;outline-offset:4px}
+/* Keep original badge artwork; remove the octagonal/diamond framing. */
+.badge-chassis,.badge-chassis.badge-cyan,.badge-chassis.badge-gold,.badge-chassis.badge-blue{
+  clip-path:none!important;position:relative;border-radius:22px!important;
+  border:1px solid rgba(220,204,170,.24);
+  background:radial-gradient(circle at 50% 35%,rgba(230,196,132,.085),transparent 55%),linear-gradient(160deg,#152231,#0a121d);
+  padding:20px;box-shadow:inset 0 1px rgba(255,255,255,.045);
+}
+.badge-chassis::before,.badge-chassis::after{display:none!important;content:none!important}
+.badge-chassis img{max-width:100%;max-height:100%;object-fit:contain;position:relative;z-index:1;filter:none}
+.mastery-badge{border-radius:22px;background:linear-gradient(170deg,rgba(22,32,46,.96),rgba(9,17,27,.98))}
+.mastery-badge:hover{border-color:rgba(222,199,148,.53)}
+/* Editorial process: the cinematic 15% is localized here, never page-wide. */
+.journey-section{position:relative;padding:clamp(76px,9vw,125px) 0;overflow:clip;border-block:1px solid rgba(201,204,227,.1);background:linear-gradient(180deg,rgba(17,25,38,.76),rgba(9,15,26,.94))}
+.journey-section::before{content:"";position:absolute;pointer-events:none;top:0;right:-10%;width:50%;height:72%;background:radial-gradient(ellipse,rgba(85,123,215,.1),transparent 70%)}
+.journey-layout{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:start;column-gap:clamp(34px,7vw,105px)}
+.journey-intro{position:sticky;top:116px;align-self:start;padding:22px 0}
+.journey-intro h2{font-size:clamp(37px,4.4vw,62px);max-width:11ch;margin:10px 0 25px}
+.journey-intro h2 em{display:block;font:italic 400 1.06em/1 "Instrument Serif",Georgia,serif;letter-spacing:-.028em;color:#e6c484}
+.journey-intro>p:not(.kicker){max-width:39ch;color:#bfcbda;font-size:16px}
+.journey-legend{display:inline-flex;gap:9px;align-items:center;flex-wrap:wrap;font-size:11px;color:#bdc7d6;margin-top:23px}
+.journey-legend i{height:8px;width:8px;border-radius:50%;background:#e6c484;box-shadow:0 0 16px rgba(230,196,132,.42)}
+.journey-steps{list-style:none;counter-reset:none;padding:0;margin:0;display:grid;gap:20px}
+.journey-step{position:relative;overflow:hidden;min-height:200px;border:1px solid rgba(177,204,232,.22);border-radius:26px;padding:31px 33px;background:linear-gradient(145deg,rgba(27,43,63,.86),rgba(12,22,35,.96));box-shadow:0 18px 44px rgba(0,0,0,.16)}
+.journey-step::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,#e6c484,rgba(136,222,231,.38));opacity:.85}
+.journey-step::after{content:"";pointer-events:none;position:absolute;right:-75px;top:-110px;width:255px;height:255px;border-radius:50%;background:radial-gradient(circle,rgba(135,178,234,.115),transparent 70%)}
+.journey-step:nth-child(3)::before{background:linear-gradient(180deg,#e6c484,#d59c5e)}
+.journey-step__meta{display:flex;justify-content:space-between;align-items:center;gap:16px;color:#e6c484;text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800}
+.journey-step__meta span:last-child{color:#a7b9ce;font-weight:600}
+.journey-step h3{font-size:clamp(24px,2.4vw,32px);margin:24px 0 11px;color:#f3f5fa}
+.journey-step p{font-size:15px;line-height:1.7;margin:0;max-width:54ch;color:#bbcad9}
+.journey-section .journey-note{font-size:12px;color:#99abc0;max-width:52ch;margin-top:16px}
+.journey-section .text-link{display:inline-block;color:#e6c484;margin-top:18px}
+.journey-step:focus-within{border-color:#f0d399}
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  @media (prefers-reduced-motion:no-preference) {
+    .journey-step{animation:dg-journey-reveal linear both;animation-timeline:view(block);animation-range:entry 8% cover 38%}
+    @keyframes dg-journey-reveal{from{opacity:.64;transform:translate3d(0,18px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+  }
+}
+@media(prefers-reduced-motion:reduce){.journey-step{animation:none!important;opacity:1!important;transform:none!important}.journey-intro{scroll-behavior:auto}}
+@media(max-width:930px){.journey-layout{grid-template-columns:1fr;gap:24px}.journey-intro{position:static;padding:0}.journey-intro h2{max-width:19ch}.journey-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.journey-step{padding:25px;min-height:235px}}
+@media(max-width:620px){.journey-section{padding:58px 0}.journey-intro h2{font-size:clamp(36px,9vw,48px)}.journey-steps{grid-template-columns:1fr;gap:12px}.journey-step{min-height:0;padding:23px;border-radius:19px}.journey-step h3{margin-top:15px}.hero h1{font-size:clamp(45px,10.2vw,62px)}.badge-chassis{border-radius:18px!important}.role-evidence-link{font-size:12px}}
