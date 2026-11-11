@@ -8,6 +8,12 @@
   const count = document.querySelector('[data-credential-count]');
   if (!list || !search || !filters || !roleFilter || !count) return;
 
+  // Portfolio role-lens deep links are restricted to the roles offered by this selector.
+  const linkedRole = new URLSearchParams(window.location.search).get('role');
+  if (linkedRole && Array.from(roleFilter.options).some((option) => option.value === linkedRole)) {
+    roleFilter.value = linkedRole;
+  }
+
   const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
   const categories = ['All', ...new Set(data.map((item) => item.category))];
   let activeCategory = 'All';

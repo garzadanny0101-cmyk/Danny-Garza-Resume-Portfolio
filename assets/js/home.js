@@ -33,17 +33,39 @@
   const roleProject = document.querySelector('[data-role-project]');
   const roleSkill = document.querySelector('[data-role-skill]');
   const roleCredential = document.querySelector('[data-role-credential]');
-  roleButtons.forEach((button) => button.addEventListener('click', () => {
+  const roleEvidenceLink = document.querySelector('[data-role-evidence-link]');
+
+  function selectRole(button, focus = false) {
     const role = button.dataset.roleTarget;
     const data = roles[role];
-    if (!data) return;
-    roleButtons.forEach((item) => item.setAttribute('aria-selected', String(item === button)));
+    if (!data || !roleTitle || !roleSummary || !roleProject || !roleSkill || !roleCredential) return;
+    roleButtons.forEach((item) => {
+      const selected = item === button;
+      item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
+    });
     roleTitle.textContent = role;
     roleSummary.textContent = data.summary;
     roleProject.textContent = data.project;
     roleSkill.textContent = data.skill;
     roleCredential.textContent = data.credential;
-  }));
+    if (roleEvidenceLink) roleEvidenceLink.href = 'credentials.html?role=' + encodeURIComponent(role) + '#credential-index';
+    if (focus) button.focus();
+  }
+
+  roleButtons.forEach((button, index) => {
+    button.tabIndex = index === 0 ? 0 : -1;
+    button.addEventListener('click', () => selectRole(button));
+    button.addEventListener('keydown', (event) => {
+      if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const current = Array.from(roleButtons).indexOf(button);
+      const next = event.key === 'Home' ? 0
+        : event.key === 'End' ? roleButtons.length - 1
+        : (current + (event.key === 'ArrowRight' ? 1 : -1) + roleButtons.length) % roleButtons.length;
+      if (roleButtons[next]) selectRole(roleButtons[next], true);
+    });
+  });
 
   const labs = {
     orchestration: {
