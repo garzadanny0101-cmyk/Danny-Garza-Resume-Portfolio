@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.aisolidknowledge.com/sitemap.xml
+Sitemap: https://danny-garza-resume-portfolio.netlify.app/sitemap.xml
